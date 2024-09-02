@@ -24,7 +24,7 @@
   - [6. Download genesis.json](#6-download-genesisjson)
   - [7. Add seeds and peers to the config.toml](#7-add-seeds-and-peers-to-the-configtoml)
   - [8. Change ports (Optional)](#8-change-ports-optional)
-  - [9. Configure prunning to save storage (Optional)](#9-configure-prunning-to-save-storage-optional)
+  - [9. Configure pruning to save storage (Optional)](#9-configure-pruning-to-save-storage-optional)
   - [10. Set min gas price](#10-set-min-gas-price)
   - [11. Enable indexer (Optional)](#11-enable-indexer-optional)
   - [12. Create a service file](#12-create-a-service-file)
@@ -193,7 +193,7 @@ sed -i \
     -e "/\[grpc-web\]/,/^\[/{s/\(address = \"\)\([^:]*\):\([0-9]*\)\(\".*\)/\1\2:$GRPC_WEB_PORT\4/}" \
     $HOME/.initia/config/app.toml
 ```
-### 9. Configure prunning to save storage (Optional)
+### 9. Configure pruning to save storage (Optional)
 ```bash
 sed -i \
     -e "s/^pruning *=.*/pruning = \"custom\"/" \
@@ -322,7 +322,7 @@ You should see the following logs. It may take up to 5 minutes for the snapshot 
 2:39PM INF Discovered new snapshot format=3 hash="%���\x16\x03�T0�v�f�C��5�<TlLb�5��l!�M" height=600000 module=statesync server=node
 2:42PM INF VerifyHeader hash=CFC07DAB03CEB02F53273F5BDB6A7C16E6E02535B8A88614800ABA9C705D4AF7 height=602001 module=light server=node
 ```
-After some time you should see the following logs. It make take 5 minutes for the node to catch up the rest of the blocks
+After some time you should see the following logs. It may take 5 minutes for the node to catch up the rest of the blocks
 ```py
 2:43PM INF indexed block events height=602265 module=txindex server=node
 2:43PM INF executed block height=602266 module=state num_invalid_txs=0 num_valid_txs=0 server=node
